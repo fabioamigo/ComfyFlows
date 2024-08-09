@@ -1,0 +1,2541 @@
+{
+  "last_node_id": 88,
+  "last_link_id": 223,
+  "nodes": [
+    {
+      "id": 25,
+      "type": "RandomNoise",
+      "pos": [
+        20,
+        1050
+      ],
+      "size": {
+        "0": 290,
+        "1": 34
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": 146,
+          "widget": {
+            "name": "noise_seed"
+          },
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        56011237318409,
+        "randomize"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 17,
+      "type": "BasicScheduler",
+      "pos": [
+        20,
+        1120
+      ],
+      "size": {
+        "0": 290,
+        "1": 110
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 166,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        4,
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 27,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        20,
+        1270
+      ],
+      "size": {
+        "0": 290,
+        "1": 80
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 112,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 113,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            116
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1280,
+        800,
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 22,
+      "type": "BasicGuider",
+      "pos": [
+        20,
+        1390
+      ],
+      "size": {
+        "0": 290,
+        "1": 50
+      },
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 167,
+          "slot_index": 0
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 42,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        20,
+        1480
+      ],
+      "size": {
+        "0": 290,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 172,
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 210,
+          "widget": {
+            "name": "text"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            41
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "RAW cinematic photo of a adult 30 years old Girl  with massive fluffy fennec ears and a big fluffy tail blonde messy long hair blue eyes wearing a maid outfit with a long black gold leaf pattern dress and a white apron mouth open holding a fancy black forest cake with candles on top in the kitchen of an old dark Victorian mansion lit by candlelight with a bright window to the foggy forest and very expensive stuff everywhere "
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 16,
+      "type": "KSamplerSelect",
+      "pos": [
+        20,
+        950
+      ],
+      "size": {
+        "0": 290,
+        "1": 60
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            19
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 52,
+      "type": "CLIPTextEncode",
+      "pos": [
+        600,
+        960
+      ],
+      "size": {
+        "0": 250,
+        "1": 54
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 144,
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 203,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            161
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 46,
+      "type": "CLIPTextEncode",
+      "pos": [
+        600,
+        1050
+      ],
+      "size": {
+        "0": 250,
+        "1": 54
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 133
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 211,
+          "widget": {
+            "name": "text"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            160
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "RAW cinematic photo of a adult 30 years old Girl  with massive fluffy fennec ears and a big fluffy tail blonde messy long hair blue eyes wearing a maid outfit with a long black gold leaf pattern dress and a white apron mouth open holding a fancy black forest cake with candles on top in the kitchen of an old dark Victorian mansion lit by candlelight with a bright window to the foggy forest and very expensive stuff everywhere "
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 44,
+      "type": "VAEEncode",
+      "pos": [
+        600,
+        1140
+      ],
+      "size": {
+        "0": 250,
+        "1": 50
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 131
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 137,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            136
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 42,
+      "type": "UpscaleImageByUsingModel",
+      "pos": [
+        600,
+        1230
+      ],
+      "size": {
+        "0": 250,
+        "1": 102
+      },
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 130,
+          "slot_index": 0
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 129
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            131
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "1st Upscale",
+      "properties": {
+        "Node name for S&R": "UpscaleImageByUsingModel"
+      },
+      "widgets_values": [
+        1.75,
+        "nearest-exact"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 74,
+      "type": "UpscaleImageByUsingModel",
+      "pos": [
+        860,
+        1430
+      ],
+      "size": {
+        "0": 260,
+        "1": 102
+      },
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 206,
+          "slot_index": 0
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 205,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            207
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "2nd Upscale",
+      "properties": {
+        "Node name for S&R": "UpscaleImageByUsingModel"
+      },
+      "widgets_values": [
+        2,
+        "nearest-exact"
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 48,
+      "type": "VAEDecode",
+      "pos": [
+        860,
+        1330
+      ],
+      "size": {
+        "0": 260,
+        "1": 60
+      },
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 222
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 139,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            181,
+            205
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        320,
+        950
+      ],
+      "size": {
+        "0": 250,
+        "1": 60
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 13,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        320,
+        1050
+      ],
+      "size": {
+        "0": 250,
+        "1": 110
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 37,
+          "slot_index": 0
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 30,
+          "slot_index": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 19,
+          "slot_index": 2
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 20,
+          "slot_index": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 116,
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        320,
+        1200
+      ],
+      "size": {
+        "0": 250,
+        "1": 50
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 24
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            129
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 58,
+      "type": "OllamaGenerateAdvance",
+      "pos": [
+        1750,
+        80
+      ],
+      "size": {
+        "0": 290,
+        "1": 420
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "context",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "context"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 220,
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 180,
+          "widget": {
+            "name": "seed"
+          },
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            174,
+            210,
+            211
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "context",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerateAdvance"
+      },
+      "widgets_values": [
+        "Minimalist wallpaper of Apple Logo",
+        false,
+        "http://127.0.0.1:11434",
+        "llama3.1:8b-instruct-q8_0",
+        "Enhance the prompt using the user's insights and instructions:\n\n* Respond only with the final prompt. * Do not add any explanation. Only provide the final prompt.\n* Ensure the prompt is optimized for Image Generation.\n* Retain all the key elements of the original prompt.\n* Maintain the required style throughout.",
+        258417304,
+        "randomize",
+        40,
+        0.9,
+        0.8,
+        -1,
+        1,
+        5,
+        false,
+        ""
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 77,
+      "type": "StringFunction|pysssss",
+      "pos": [
+        1750,
+        540
+      ],
+      "size": {
+        "0": 210,
+        "1": 240
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 212,
+          "widget": {
+            "name": "text_b"
+          },
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            216
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "widgets_values": [
+        "append",
+        "no",
+        "-Style to be used in the prompt:\n\n",
+        "",
+        "",
+        "-Style to be used in the prompt:\n\ncinematic photo  . 35mm photograph, film, bokeh, professional, 4k, highly detailed"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 80,
+      "type": "StringFunction|pysssss",
+      "pos": [
+        1750,
+        570
+      ],
+      "size": {
+        "0": 210,
+        "1": 220
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 214,
+          "widget": {
+            "name": "text_b"
+          },
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            217
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "widgets_values": [
+        "append",
+        "no",
+        "\n\n- Main subject of the prompt:\n\n",
+        "ladybug holding a sigh written \"The end is coming\"",
+        "",
+        "\n\n- Main subject of the prompt:\n\nladybug holding a sigh written \"The end is coming\""
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 81,
+      "type": "StringFunction|pysssss",
+      "pos": [
+        1750,
+        600
+      ],
+      "size": {
+        "0": 210,
+        "1": 220
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 215,
+          "widget": {
+            "name": "text_b"
+          },
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            218
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "widgets_values": [
+        "append",
+        "no",
+        "\n\n- Things to be avoided in the prompt:\n\n",
+        "Apple Logo",
+        "",
+        "\n\n- Things to be avoided in the prompt:\n\ndrawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 82,
+      "type": "StringFunction|pysssss",
+      "pos": [
+        1750,
+        630
+      ],
+      "size": {
+        "0": 210,
+        "1": 180
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 216,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 217,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 218,
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            219,
+            220
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "widgets_values": [
+        "append",
+        "no",
+        "",
+        "",
+        "",
+        "-Style to be used in the prompt:\n\ncinematic photo  . 35mm photograph, film, bokeh, professional, 4k, highly detailed\n\n- Main subject of the prompt:\n\nladybug holding a sigh written \"The end is coming\"\n\n- Things to be avoided in the prompt:\n\ndrawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 30,
+      "type": "ModelSamplingFlux",
+      "pos": [
+        1520,
+        400
+      ],
+      "size": {
+        "0": 220,
+        "1": 130
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 171,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 115,
+          "widget": {
+            "name": "width"
+          },
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 114,
+          "widget": {
+            "name": "height"
+          },
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            166,
+            167
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "widgets_values": [
+        0.5,
+        0.3,
+        1280,
+        800
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 26,
+      "type": "FluxGuidance",
+      "pos": [
+        1520,
+        570
+      ],
+      "size": {
+        "0": 220,
+        "1": 60
+      },
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 83,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1520,
+        80
+      ],
+      "size": {
+        "0": 220,
+        "1": 280
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 219,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "title": "Prompt Instructions",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "-Style to be used in the prompt:\n\ncinematic photo  . 35mm photograph, film, bokeh, professional, 4k, highly detailed\n\n- Main subject of the prompt:\n\nladybug holding a sigh written \"The end is coming\"\n\n- Things to be avoided in the prompt:\n\ndrawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 73,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        1910,
+        630
+      ],
+      "size": {
+        "0": 400,
+        "1": 240
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "style",
+          "type": "COMBO",
+          "link": 221,
+          "widget": {
+            "name": "style"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            212
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": [
+            203,
+            215
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLPromptStyler"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "sai-photographic",
+        true,
+        true,
+        true
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": [
+        1150,
+        950
+      ],
+      "size": {
+        "0": 330,
+        "1": 110
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            170
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "DualCLIPLoader FLUX",
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 12,
+      "type": "UNETLoader",
+      "pos": [
+        1150,
+        1100
+      ],
+      "size": {
+        "0": 330,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            169
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Load Diffusion Model FLUX",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-schnell.sft",
+        "default"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 55,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": {
+        "0": 1150,
+        "1": 1220,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 330,
+        "1": 142
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 169,
+          "dir": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 170,
+          "dir": 3,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            171
+          ],
+          "shape": 3,
+          "dir": 4,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            172
+          ],
+          "shape": 3,
+          "dir": 4,
+          "slot_index": 1
+        }
+      ],
+      "title": "Lora FLUX",
+      "properties": {
+        "Show Strengths": "Single Strength"
+      },
+      "widgets_values": [
+        null,
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        null,
+        ""
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 43,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1150,
+        1540
+      ],
+      "size": {
+        "0": 330,
+        "1": 60
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            130,
+            206
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "Load Upscale Model HIRES",
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x-UltraSharp.pth"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 47,
+      "type": "VAELoader",
+      "pos": [
+        860,
+        960
+      ],
+      "size": {
+        "0": 260,
+        "1": 60
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            137,
+            139
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sdxl_vae.safetensors"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        20,
+        80
+      ],
+      "size": {
+        "0": 440,
+        "1": 490
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "title": "1st Pass (1MP)",
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI_1MP_"
+      ],
+      "color": "#323",
+      "bgcolor": "#535",
+      "shape": 1
+    },
+    {
+      "id": 45,
+      "type": "KSampler",
+      "pos": [
+        860,
+        1060
+      ],
+      "size": {
+        "0": 260,
+        "1": 230
+      },
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 132
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 160
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 161
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 136
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 147,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": 223,
+          "widget": {
+            "name": "denoise"
+          },
+          "slot_index": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            222
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        375689810533310,
+        "randomize",
+        8,
+        1,
+        "euler_ancestral",
+        "sgm_uniform",
+        0.35000000000000003
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 61,
+      "type": "SaveImage",
+      "pos": [
+        470,
+        80
+      ],
+      "size": {
+        "0": 440,
+        "1": 490
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 181
+        }
+      ],
+      "title": "HiRes (3MP)",
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI_3MP_"
+      ],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    },
+    {
+      "id": 75,
+      "type": "SaveImage",
+      "pos": [
+        920,
+        80
+      ],
+      "size": {
+        "0": 560,
+        "1": 490
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 207
+        }
+      ],
+      "title": "Final Upscale (12MP)",
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI_12MP_"
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 34,
+      "type": "PrimitiveNode",
+      "pos": [
+        730,
+        780
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            112,
+            115
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "width"
+          }
+        }
+      ],
+      "title": "Width",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1280,
+        "fixed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 51,
+      "type": "PrimitiveNode",
+      "pos": [
+        20,
+        610
+      ],
+      "size": {
+        "0": 700,
+        "1": 250
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            214
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_b"
+          }
+        }
+      ],
+      "title": "Main Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "ladybug holding a sigh written \"The end is coming\""
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 35,
+      "type": "PrimitiveNode",
+      "pos": [
+        950,
+        780
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            113,
+            114
+          ],
+          "widget": {
+            "name": "height"
+          },
+          "slot_index": 0
+        }
+      ],
+      "title": "Height",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        800,
+        "fixed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 85,
+      "type": "PrimitiveNode",
+      "pos": [
+        1170,
+        610
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 9,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            223
+          ],
+          "widget": {
+            "name": "denoise"
+          }
+        }
+      ],
+      "title": "HiRes Denoise",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0.35000000000000003,
+        "fixed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 41,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        1150,
+        1400
+      ],
+      "size": {
+        "0": 330,
+        "1": 100
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            132
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            133,
+            144
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "Load Checkpoint HIRES",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "boltningRealistic_hyperD.safetensors"
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 57,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2050,
+        80
+      ],
+      "size": {
+        "0": 240,
+        "1": 550
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 174,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "title": "Final LLM Enhanced prompt",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "A ladybug holds a sign that reads 'The End Is Coming' in a cinematic 35mm photograph style, capturing high detail and a professional aesthetic. The image is rendered in 4K with a sharp focus on the ladybug and its message, while the background is blurred to emphasize the subject."
+      ],
+      "color": "#233",
+      "bgcolor": "#355",
+      "shape": 1
+    },
+    {
+      "id": 84,
+      "type": "PrimitiveNode",
+      "pos": [
+        950,
+        610
+      ],
+      "size": {
+        "0": 210,
+        "1": 110
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "COMBO",
+          "type": "COMBO",
+          "links": [
+            221
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "style"
+          }
+        }
+      ],
+      "title": "Style",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "sai-photographic",
+        "fixed",
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 88,
+      "type": "Note",
+      "pos": [
+        1170,
+        730
+      ],
+      "size": [
+        310,
+        130
+      ],
+      "flags": {
+        "pinned": false
+      },
+      "order": 12,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "The main prompt will be enhanced by an LLM, with Style as a reference. The LLM Block is on the right ===>\n\nModels used are as follows:\n\n- 1st Pass: FLUX\n- 2nd HiRes Pass: Bolting Realist HyperD"
+      ],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    },
+    {
+      "id": 53,
+      "type": "Seed (rgthree)",
+      "pos": {
+        "0": 730,
+        "1": 610,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 130
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEED",
+          "type": "INT",
+          "links": [
+            146,
+            147,
+            180
+          ],
+          "shape": 3,
+          "dir": 4,
+          "slot_index": 0
+        }
+      ],
+      "title": "Seed",
+      "properties": {},
+      "widgets_values": [
+        332529202069014,
+        null,
+        null,
+        null
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      10,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      16,
+      0,
+      13,
+      2,
+      "SAMPLER"
+    ],
+    [
+      20,
+      17,
+      0,
+      13,
+      3,
+      "SIGMAS"
+    ],
+    [
+      24,
+      13,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      30,
+      22,
+      0,
+      13,
+      1,
+      "GUIDER"
+    ],
+    [
+      37,
+      25,
+      0,
+      13,
+      0,
+      "NOISE"
+    ],
+    [
+      41,
+      6,
+      0,
+      26,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      42,
+      26,
+      0,
+      22,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      112,
+      34,
+      0,
+      27,
+      0,
+      "INT"
+    ],
+    [
+      113,
+      35,
+      0,
+      27,
+      1,
+      "INT"
+    ],
+    [
+      114,
+      35,
+      0,
+      30,
+      2,
+      "INT"
+    ],
+    [
+      115,
+      34,
+      0,
+      30,
+      1,
+      "INT"
+    ],
+    [
+      116,
+      27,
+      0,
+      13,
+      4,
+      "LATENT"
+    ],
+    [
+      129,
+      8,
+      0,
+      42,
+      1,
+      "IMAGE"
+    ],
+    [
+      130,
+      43,
+      0,
+      42,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      131,
+      42,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      132,
+      41,
+      0,
+      45,
+      0,
+      "MODEL"
+    ],
+    [
+      133,
+      41,
+      1,
+      46,
+      0,
+      "CLIP"
+    ],
+    [
+      136,
+      44,
+      0,
+      45,
+      3,
+      "LATENT"
+    ],
+    [
+      137,
+      47,
+      0,
+      44,
+      1,
+      "VAE"
+    ],
+    [
+      139,
+      47,
+      0,
+      48,
+      1,
+      "VAE"
+    ],
+    [
+      144,
+      41,
+      1,
+      52,
+      0,
+      "CLIP"
+    ],
+    [
+      146,
+      53,
+      0,
+      25,
+      0,
+      "INT"
+    ],
+    [
+      147,
+      53,
+      0,
+      45,
+      4,
+      "INT"
+    ],
+    [
+      160,
+      46,
+      0,
+      45,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      161,
+      52,
+      0,
+      45,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      166,
+      30,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      167,
+      30,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      169,
+      12,
+      0,
+      55,
+      0,
+      "MODEL"
+    ],
+    [
+      170,
+      11,
+      0,
+      55,
+      1,
+      "CLIP"
+    ],
+    [
+      171,
+      55,
+      0,
+      30,
+      0,
+      "MODEL"
+    ],
+    [
+      172,
+      55,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      174,
+      58,
+      0,
+      57,
+      0,
+      "STRING"
+    ],
+    [
+      180,
+      53,
+      0,
+      58,
+      2,
+      "INT"
+    ],
+    [
+      181,
+      48,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      203,
+      73,
+      1,
+      52,
+      1,
+      "STRING"
+    ],
+    [
+      205,
+      48,
+      0,
+      74,
+      1,
+      "IMAGE"
+    ],
+    [
+      206,
+      43,
+      0,
+      74,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      207,
+      74,
+      0,
+      75,
+      0,
+      "IMAGE"
+    ],
+    [
+      210,
+      58,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      211,
+      58,
+      0,
+      46,
+      1,
+      "STRING"
+    ],
+    [
+      212,
+      73,
+      0,
+      77,
+      0,
+      "STRING"
+    ],
+    [
+      214,
+      51,
+      0,
+      80,
+      0,
+      "STRING"
+    ],
+    [
+      215,
+      73,
+      1,
+      81,
+      0,
+      "STRING"
+    ],
+    [
+      216,
+      77,
+      0,
+      82,
+      0,
+      "STRING"
+    ],
+    [
+      217,
+      80,
+      0,
+      82,
+      1,
+      "STRING"
+    ],
+    [
+      218,
+      81,
+      0,
+      82,
+      2,
+      "STRING"
+    ],
+    [
+      219,
+      82,
+      0,
+      83,
+      0,
+      "STRING"
+    ],
+    [
+      220,
+      82,
+      0,
+      58,
+      1,
+      "STRING"
+    ],
+    [
+      221,
+      84,
+      0,
+      73,
+      0,
+      "COMBO"
+    ],
+    [
+      222,
+      45,
+      0,
+      48,
+      0,
+      "LATENT"
+    ],
+    [
+      223,
+      85,
+      0,
+      45,
+      5,
+      "FLOAT"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Models",
+      "bounding": [
+        1140,
+        880,
+        350,
+        730
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": true
+    },
+    {
+      "title": "LLM Enhance & Params",
+      "bounding": [
+        1510,
+        10,
+        790,
+        634
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": true
+    },
+    {
+      "title": "1st Pass - FLUX",
+      "bounding": [
+        10,
+        880,
+        570,
+        660
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "locked": true
+    },
+    {
+      "title": "HiRes Enhancement",
+      "bounding": [
+        590,
+        880,
+        540,
+        660
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "locked": true
+    },
+    {
+      "title": "Outputs",
+      "bounding": [
+        10,
+        10,
+        1480,
+        860
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": true
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "groupNodes": {}
+  },
+  "version": 0.4
+}
