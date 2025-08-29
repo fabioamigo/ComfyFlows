@@ -9,7 +9,7 @@ curl -LsSf https://github.com/fabioamigo/ComfyFlows/blob/main/install.sh | sh
 ```
 . .venv/bin/activate
 cd ComfyUI
-python main.py --listn 0.0.0.0 --port 9999
+python main.py --listen 0.0.0.0 --port 9999
 ```
 
 ### Install Qwen Files
